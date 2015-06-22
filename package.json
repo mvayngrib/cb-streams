@@ -1,0 +1,41 @@
+{
+  "name": "cb-streams",
+  "version": "1.0.0",
+  "description": "stream-based interface to common-blockchain APIs",
+  "scripts": {
+    "style": "standard",
+    "test": "node test"
+  },
+  "dependencies": {
+    "bitcoinjs-lib": "^1.4.3",
+    "cb-blockr": "^3.0.2",
+    "read-stream": "^2.1.1",
+    "readable-stream": "^2.0.0",
+    "stream-combiner2": "^1.0.2",
+    "throttleme": "^1.0.2",
+    "through2": "^2.0.0",
+    "typeforce": "^1.1.2",
+    "uniq": "^1.0.1"
+  },
+  "devDependencies": {
+    "blockloader": "git://github.com/mvayngrib/blockloader",
+    "deep-equal": "^1.0.0",
+    "pre-commit": "latest",
+    "standard": "latest",
+    "tape": "^3.5.0"
+  },
+  "homepage": "https://github.com/mvayngrib/cb-streams",
+  "license": "ISC",
+  "main": "index.js",
+  "pre-commit": [
+    "style"
+  ],
+  "author": "Mark Vayngrib <mark.vayngrib@lablz.com> (http://github.com/mvayngrib)",
+  "bugs": {
+    "url": "https://github.com/mvayngrib/cb-streams/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/mvayngrib/cb-streams.git"
+  }
+}
