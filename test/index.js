@@ -111,19 +111,19 @@ test('live stream of txs for addresses', function (t) {
     live: true,
     interval: 200,
     networkName: networkName,
-    api: fakechain,
+    api: chain,
     addresses: Object.keys(txAddrFixtures)
   })
 
   stream.pipe(through2.obj(function (txInfo, enc, done) {
-    getAddresses(txInfo.tx).forEach(function (addr) {
-      if (txs[addr]) {
-        txs[addr].push(txInfo.tx.getId())
-      }
-    })
+      getAddresses(txInfo.tx).forEach(function (addr) {
+        if (txs[addr]) {
+          txs[addr].push(txInfo.tx.getId())
+        }
+      })
 
-    done()
-  }))
+      done()
+    }))
     .on('data', function () {})
     .on('end', function () {
       t.deepEqual(txs, txAddrFixtures)
