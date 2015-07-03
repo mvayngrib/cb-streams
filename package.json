@@ -8,8 +8,8 @@
   },
   "dependencies": {
     "bitcoinjs-lib": "^1.4.3",
-    "cb-blockr": "^3.0.2",
-    "read-stream": "^2.1.1",
+    "blockloader": "git://github.com/mvayngrib/blockloader",
+    "deep-equal": "^1.0.0",
     "readable-stream": "^2.0.0",
     "stream-combiner2": "^1.0.2",
     "throttleme": "^1.0.2",
