@@ -28,7 +28,8 @@
   "license": "ISC",
   "main": "index.js",
   "pre-commit": [
-    "style"
+    "style",
+    "test"
   ],
   "author": "Mark Vayngrib <mark.vayngrib@lablz.com> (http://github.com/mvayngrib)",
   "bugs": {
