@@ -1,6 +1,6 @@
 {
   "name": "cb-streams",
-  "version": "1.0.3",
+  "version": "1.0.4",
   "description": "stream-based interface to common-blockchain APIs",
   "scripts": {
     "style": "standard",
