@@ -122,6 +122,7 @@ test('live stream of txs for addresses', function (t) {
           var id = txInfo.tx.getId()
           if (addrTxs.indexOf(id) === -1) {
             addrTxs.push(id)
+            addrTxs.sort(alphabetical)
           }
         }
       })
@@ -174,4 +175,9 @@ function getInputAddresses (tx) {
 
 function getAddresses (tx) {
   return uniq(getOutputAddresses(tx).concat(getInputAddresses(tx)))
+}
+
+function alphabetical (a, b) {
+  return a < b ? -1 :
+    a > b ? 1 : 0
 }
