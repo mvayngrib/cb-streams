@@ -117,8 +117,12 @@ test('live stream of txs for addresses', function (t) {
 
   stream.pipe(through2.obj(function (txInfo, enc, done) {
       getAddresses(txInfo.tx).forEach(function (addr) {
-        if (txs[addr]) {
-          txs[addr].push(txInfo.tx.getId())
+        var addrTxs = txs[addr]
+        if (addrTxs) {
+          var id = txInfo.tx.getId()
+          if (addrTxs.indexOf(id) === -1) {
+            addrTxs.push(id)
+          }
         }
       })
 
