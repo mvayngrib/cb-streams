@@ -16,10 +16,9 @@
     "stream-combiner2": "^1.0.2",
     "throttleme": "^1.0.3",
     "through2": "^2.0.0",
-    "typeforce": "^1.1.2",
+    "typeforce": "^1.1.2"
   },
   "devDependencies": {
-    "deep-equal": "^1.0.0",
     "pre-commit": "latest",
     "standard": "latest",
     "tape": "^3.5.0",

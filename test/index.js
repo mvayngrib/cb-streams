@@ -82,24 +82,23 @@ test('streams txs for addresses', function (t) {
     api: fakechain,
     addresses: Object.keys(txAddrFixtures)
   })
-    .pipe(through2.obj(function (txInfo, enc, done) {
-      getAddresses(txInfo.tx).forEach(function (addr) {
-        if (txs[addr]) {
-          txs[addr].push(txInfo.tx.getId())
-        }
-      })
-
-      done()
-    }))
-    .on('data', function () {})
-    .on('end', function () {
-      t.deepEqual(txs, txAddrFixtures)
+  .pipe(through2.obj(function (txInfo, enc, done) {
+    getAddresses(txInfo.tx).forEach(function (addr) {
+      if (txs[addr]) {
+        txs[addr].push(txInfo.tx.getId())
+      }
     })
+
+    done()
+  }))
+  .on('data', function () {})
+  .on('end', function () {
+    assertEqual(txs, txAddrFixtures, t)
+    t.end()
+  })
 })
 
 test('live stream of txs for addresses', function (t) {
-  t.plan(1)
-
   var chain = new Fakechain({ networkName: 'testnet' })
 
   var txs = {}
@@ -116,23 +115,23 @@ test('live stream of txs for addresses', function (t) {
   })
 
   stream.pipe(through2.obj(function (txInfo, enc, done) {
-      getAddresses(txInfo.tx).forEach(function (addr) {
-        var addrTxs = txs[addr]
-        if (addrTxs) {
-          var id = txInfo.tx.getId()
-          if (addrTxs.indexOf(id) === -1) {
-            addrTxs.push(id)
-            addrTxs.sort(alphabetical)
-          }
+    getAddresses(txInfo.tx).forEach(function (addr) {
+      var addrTxs = txs[addr]
+      if (addrTxs) {
+        var id = txInfo.tx.getId()
+        if (addrTxs.indexOf(id) === -1) {
+          addrTxs.push(id)
         }
-      })
-
-      done()
-    }))
-    .on('data', function () {})
-    .on('end', function () {
-      t.deepEqual(txs, txAddrFixtures)
+      }
     })
+
+    done()
+  }))
+  .on('data', function () {})
+  .on('end', function () {
+    assertEqual(txs, txAddrFixtures, t)
+    t.end()
+  })
 
   blockFixtures.forEach(function (b, i) {
     setTimeout(function () {
@@ -178,6 +177,13 @@ function getAddresses (tx) {
 }
 
 function alphabetical (a, b) {
-  return a < b ? -1 :
-    a > b ? 1 : 0
+  return a < b ? -1 : a > b ? 1 : 0
+}
+
+function assertEqual (actual, expected, t) {
+  for (var addr in txAddrFixtures) {
+    actual[addr].sort(alphabetical)
+  }
+
+  t.deepEqual(actual, expected)
 }
