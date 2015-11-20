@@ -3,7 +3,7 @@ var toTxs = require('./lib/toTxs')
 var dataTxsOnly = require('./lib/dataTxsOnly')
 var txsForAddresses = require('./lib/txsForAddresses')
 var getData = require('./lib/getData')
-var combine = require('stream-combiner2')
+var combine = require('stream-combiner2').obj
 
 function txstream (options) {
   return options.addresses ? txsForAddresses(options) : combine(
