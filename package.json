@@ -8,7 +8,7 @@
   },
   "dependencies": {
     "bitcoin-tx-graph": "tradle/bitcoin-transaction-graph",
-    "bitcoinjs-lib": "^1.4.3",
+    "bitcoinjs-lib": "mvayngrib/bitcoinjs-lib#lazy1.5.7",
     "debug": "^2.2.0",
     "deep-equal": "^1.0.0",
     "readable-stream": "~1.0.33",
