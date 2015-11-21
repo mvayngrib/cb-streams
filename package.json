@@ -9,7 +9,6 @@
   "dependencies": {
     "bitcoin-tx-graph": "tradle/bitcoin-transaction-graph",
     "bitcoinjs-lib": "^1.4.3",
-    "blockloader": "git://github.com/mvayngrib/blockloader",
     "debug": "^2.2.0",
     "deep-equal": "^1.0.0",
     "readable-stream": "~1.0.33",
@@ -19,6 +18,7 @@
     "typeforce": "^1.1.2"
   },
   "devDependencies": {
+    "blockloader": "git://github.com/mvayngrib/blockloader",
     "pre-commit": "latest",
     "standard": "latest",
     "tape": "^3.5.0",
