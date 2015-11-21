@@ -1,6 +1,6 @@
 var test = require('tape')
 var through2 = require('through2')
-var bitcoin = require('bitcoinjs-lib')
+var bitcoin = require('@tradle/bitcoinjs-lib')
 var uniq = require('uniq')
 var Fakechain = require('blockloader/fakechain')
 var streams = require('../').stream
