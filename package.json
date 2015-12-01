@@ -10,7 +10,7 @@
     "@tradle/bitcoinjs-lib": "^1.5.7",
     "debug": "^2.2.0",
     "deep-equal": "^1.0.0",
-    "readable-stream": "~1.0.33",
+    "readable-stream": "1.0.33",
     "stream-combiner2": "^1.0.2",
     "throttleme": "^1.0.3",
     "through2": "^2.0.0",
